@@ -37,14 +37,10 @@ export class TopicComponent implements OnInit {
   removeQA(){}
 
   getInputValue($event: Event): string {
-    return getValue($event);
+    return ($event.target as HTMLInputElement).value;
   }
 
   updateModelName($event: Event) {
     this.model.name = this.getInputValue($event);
   }
-}
-
-function getValue($event: Event): string {
-  return ($event.target as HTMLInputElement).value;
 }
