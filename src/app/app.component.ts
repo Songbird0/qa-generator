@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {TopichandlerComponent} from "./topichandler/topichandler.component";
 
 @Component({
   selector: 'app-root',
