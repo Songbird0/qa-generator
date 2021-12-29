@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {QaComponent, QAModel} from "../qa/qa.component";
-import {FormControl} from "@angular/forms";
+import {QAModel} from "../qa/qa.component";
 
 export class TopicModel {
   id: number;
@@ -30,11 +29,16 @@ export class TopicComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-
   }
 
-  addQA(){}
-  removeQA(){}
+  addQA(){
+    let listSize = this.model.qaList.length;
+    this.model.qaList.push(new QAModel(listSize));
+  }
+  removeQA(id: number){
+    let oldList = this.model.qaList;
+    this.model.qaList = oldList.filter(qa => qa.id !== id);
+  }
 
   getInputValue($event: Event): string {
     return ($event.target as HTMLInputElement).value;

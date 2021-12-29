@@ -1,4 +1,9 @@
 <p>topic works!</p>
 <div id="topic-{{model.id}}">
-  <input type="text" [value]="model.name" (input)="updateModelName($event)">
+  <label>Nom du topic:</label><input type="text" [value]="model.name" (input)="updateModelName($event)">
+  <button (click)="addQA()">Ajouter une QR</button>
+  <div id="topic-{{model.id}}-qa-list" *ngFor="let qa of model.qaList">
+    <button (click)="removeQA(qa.id)">Supprimer la QR</button>
+    <app-qa [qa-model]="qa"></app-qa>
+  </div>
 </div>
